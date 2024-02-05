@@ -1,0 +1,138 @@
+:root{
+    --chakra-colors-chakra-body-bg: var(--chakra-colors-gray-800);
+}
+.request{
+    margin:auto 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.request .container{
+    margin:35vw 5vw 20vw 5vw;
+    padding:8vw 7vw 7vw 7vw;
+    border:1px solid;
+    height:70vh;
+    width:80vw;
+    border-radius: 30px;
+    box-shadow:0px 0px 10px;
+}
+.request .heading{
+    font-size:5vw;
+    text-align: center;
+}
+.request-btn{
+    width:100%;
+}
+.request .label{
+    margin-top:10px;
+    font-weight: bold;
+    font-size:3.5vw;
+}
+.request-box{
+    text-align: center;
+    font-size:3.5vw;
+}
+.request-box a button{
+    font-size:3.5vw;
+}
+
+@media screen and (min-width:500px){
+    .request .heading{
+        font-size:5vw;
+        margin:5vw 0;
+    }
+    .request-input{
+        margin:1vw 0px;
+        padding-top:5vw;
+        padding-bottom:4vw;
+    }
+    .request-input::placeholder{
+        font-size:3vw;
+    }
+    .request-btn{
+        padding:4vw;
+    }
+    .request-btn span{
+        font-size:4vw;
+    }
+    .request-box{
+        font-size:3vw;
+    }
+    .request-box a Button{
+        font-size:3vw;
+    }    
+} 
+
+@media screen and (min-width:769px){
+    .request .container{
+        height:60vh;
+        width:75vw;
+    }
+    .request-box{
+        padding-top:2vw;
+    }
+    .request-box a Button{
+        font-size:3vw;
+    }
+} 
+
+@media screen and (min-width:1024px){
+    .request .container{
+        margin:15vw 0;
+    }
+    .request .heading{
+        margin:0 0 1vw 0;
+    }
+    .request .container{
+        height:85vh;
+        width:75vw;
+    }
+    .request-btn span{
+        font-size:3.5vw;
+    }
+}
+
+@media screen and (min-width:1240px){
+    .request{
+        margin:2vw 7vw 0 7vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .request .container{
+        height:78vh;
+        width:28vw;
+        margin:8vw 0;
+        padding:1.8vw;
+    }
+    .request .heading{
+        font-size:2vw;
+        margin:.5vw 0;
+    }
+    .request .label{
+        font-size:1.3vw;
+        margin:0;
+    }
+    .request-input{
+        margin:1vw 0;
+        padding-top:1vw;
+        padding-bottom:1vw;
+    }
+    .request-input::placeholder{
+        font-size:1vw;
+    }
+    .request-btn{
+        padding-top:1vw;
+        padding-bottom:1vw;
+    }
+    .request-btn span{
+        font-size:1vw;
+    }
+    .request-box{
+        font-size:1vw;
+        padding:0;
+    }
+    .request-box a Button{
+        font-size:1vw;
+    }    
+}

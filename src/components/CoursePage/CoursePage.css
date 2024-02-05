@@ -1,0 +1,22 @@
+.videoBox{
+    margin-top:40vw;
+    padding:0vw 3vw;
+}
+
+.coursePage-heading{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (min-width:475px){
+    .videoBox{
+        margin-top:0vw;
+        padding:0; 
+    }
+    .coursePage-grid{
+        margin-top:7vw;
+    }
+    .coursePage-heading{
+        margin-left:27vw;
+    }
+}

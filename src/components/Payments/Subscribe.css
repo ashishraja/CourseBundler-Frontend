@@ -1,0 +1,131 @@
+.subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.subscribe-stack {
+    box-shadow: 0 0 1vw grey;
+    border-radius: 2vw;
+    margin-top: 5vw;
+    width: 77vw;
+    overflow: hidden;
+}
+
+.subscribe-text {
+    font-size: 4.5vw;
+    padding: 3vw 4vw;
+    text-align: center;
+}
+
+.subscribe-text2 {
+    font-size: 4.5vw;
+    padding: 3vw 10vw;
+    text-align: center;
+}
+
+.button {
+    margin: 8vw;
+    width: 60vw;
+}
+
+.stack .subscribe-heading1 {
+    font-size: 6vw;
+}
+
+.box {
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    padding: 4vw;
+}
+
+.box .subscribe-heading {
+    font-size: 4vw;
+    color: white;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+
+.box .subscribe-text1 {
+    font-size: 3.5vw;
+    text-align: left;
+    color: white;
+}
+
+
+@media screen and (min-width:500px) and (max-width:1079px) {
+
+    .subscribe .subscribe-heading {
+        font-size: 8vw;
+    }
+
+    .box .subscribe-heading {
+        font-size: 4vw;
+    }
+
+    .stack .subscribe-heading1 {
+        font-size: 6vw;
+        margin: 4vw auto;
+    }
+
+    .button {
+        padding: 5vw 10vw;
+    }
+
+    .button span {
+        font-size: 4vw;
+    }
+
+}
+
+@media screen and (min-width:1080px) {
+
+    .subscribe {
+        margin: 5vw;
+    }
+
+    .box .subscribe-text1 {
+        font-size: 1vw;
+    }
+
+    .box {
+        padding: 2vw;
+    }
+
+    .subscribe-stack {
+        width: 35vw;
+        margin: 2vw;
+    }
+
+    .stack .subscribe-heading1 {
+        font-size: 2vw;
+    }
+
+    .subscribe-text {
+        font-size: 1.5vw;
+        padding: 2vw;
+    }
+
+    .subscribe-text2 {
+        font-size: 1.5vw;
+        padding: 2vw 4vw;
+    }
+
+    .icon {
+        font-size: 5vw;
+    }
+
+    .box .subscribe-heading {
+        font-size: 1.5vw;
+        width: 100%;
+    }
+
+    .button {
+        width: 27vw;
+        padding: 2vw 4vw;
+        margin: 2vw 4vw;
+    }
+}

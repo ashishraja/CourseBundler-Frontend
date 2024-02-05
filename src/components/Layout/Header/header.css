@@ -1,0 +1,16 @@
+/* @media screen and (max-width:500px){ */
+    .header-mainDiv{
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        z-index: 1;
+        width: 100vw;
+        margin: auto;
+        opacity: 0.9;
+        background-color: black;
+        height:100px;
+        top:0;
+    }
+/* } */

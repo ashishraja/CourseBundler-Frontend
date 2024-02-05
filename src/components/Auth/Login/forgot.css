@@ -1,0 +1,225 @@
+.forgot .content div {
+    display: flex;
+    justify-content: center;
+}
+
+.forgot {
+    display: flex;
+    align-items: center;
+}
+
+.forgot-btn {
+    margin-top: -2vw;
+    width: 100%;
+    border-radius: 2vw;
+}
+
+.forgot .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72vh;
+    width: 80vw;
+    border: 1px solid;
+    margin: 33vw 5vw 20vw 10vw;
+    background-color: lightgrey;
+    border-radius: 7vw;
+    box-shadow: 0px 0px .5vw;
+}
+
+.forgot .container1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 7vw;
+    border: 1px solid;
+    height: 67vh;
+    width: 69vw;
+    background-color: #ffeb3b;
+    background: url("https://img.freepik.com/premium-vector/school-seamless-pattern-with-line-icons-yellow-background-school-supplies-decoration-promotion-education-background-super-sale-banner-shopping-vector-illustration-10-eps_824631-3788.jpg?size=626&ext=jpg&ga=GA1.2.1095245599.1693384251&semt=ais");
+}
+
+.forgot .container2-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7vw;
+    border: 1px solid;
+    height: 46.5vh;
+    width: 69vw;
+    background-color: white;
+}
+
+.forgot .container2-dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--chakra-colors-gray-800);
+    border-radius: 7vw;
+    border: 1px solid;
+    height: 46.5vh;
+    width: 69vw;
+}
+
+.icon {
+    font-size: 9vw;
+}
+
+
+.forgot .heading {
+    text-align: center;
+    padding: 2vw 0 0 0;
+    font-size: 5vw;
+    width: 60vw;
+}
+
+.forgot-box a button {
+    padding-top: 1vw;
+    font-size: 4vw;
+}
+
+.forgot-input::placeholder {
+    font-size: 4vw;
+}
+
+.forgot-input {
+    padding: 5vw 0 4vw 0;
+    margin: 1vw 0;
+}
+
+
+@media screen and (min-width:500px) {
+    .forgot .heading {
+        font-size: 6vw;
+    }
+
+    .forgot-btn span {
+        font-size: 4vw;
+        padding: 0 5vw;
+    }
+
+    .forgot-btn {
+        padding: 5vw 0vw;
+    }
+
+    .forgot-input {
+        margin: 2vw 0;
+    }
+
+    .forgot-box a button {
+        padding-top: 3vw;
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width:768px) {
+
+    .forgot .heading {
+        font-size: 6vw;
+    }
+
+    .content div .icon {
+        font-size: 10vw;
+    }
+
+
+
+    .forgot-btn span {
+        font-size: 3.5vw;
+        padding: 0 1vw;
+    }
+
+    .forgot-btn {
+        padding: 4.5vw 0;
+    }
+
+    .forgot-box {
+        font-size: 3vw;
+    }
+
+    .forgot-box a button {
+        padding: 2vw 0;
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width:1080px) {
+    .content div .icon {
+        font-size: 4vw;
+    }
+
+    .forgot {
+        margin: 10vw 0 -5vw 0;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .forgot .container {
+        margin-top: 8vw;
+        height: 78vh;
+        width: 30vw;
+        border-radius: 3vw;
+    }
+
+    .forgot .heading {
+        font-size: 2vw;
+        width: 30vw;
+        padding: 1vw 0 0 0;
+    }
+
+    .forgot .container1 {
+        border-radius: 3vw;
+        height: 71vh;
+        width: 26.5vw;
+    }
+
+    .forgot .container2-light {
+        border-radius: 3vw;
+        height: 52vh;
+        width: 26.5vw;
+        padding: 3vw 2vw;
+    }
+
+    .forgot .container2-dark {
+        border-radius: 3vw;
+        height: 52vh;
+        width: 26.5vw;
+        padding: 3vw 2vw;
+    }
+
+    .forgot-input::placeholder {
+        font-size: 1vw;
+    }
+
+    .forgot-input {
+        padding: 0;
+        max-width: 23vw;
+        margin: .3vw 3.5vw;
+    }
+
+    .forgot-btn span {
+        font-size: 1vw;
+        padding: 0 8.7vw;
+    }
+
+    .forgot-btn {
+        padding: 0;
+        max-width: 23vw;
+        margin: -1vw 3.5vw 0 3.5vw;
+    }
+
+    .forgot-box {
+        font-size: 1.1vw;
+        text-align: center;
+        padding: 0;
+    }
+
+    .forgot-box a button {
+        padding: 0vw;
+        font-size: 1.1vw;
+    }
+}

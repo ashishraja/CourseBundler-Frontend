@@ -1,0 +1,190 @@
+.register {
+    display: flex;
+    align-items: center;
+}
+.register-main-box{
+    display:flex;
+    justify-content: center;
+    margin-bottom:5vw;
+}
+
+.register .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72vh;
+    width: 80vw;
+    border: 1px solid;
+    margin: 33vw 5vw 20vw 10vw;
+    background-color: lightgrey;
+    border-radius: 7vw;
+    box-shadow: 0px 0px .5vw;
+}
+
+.register .heading{
+    text-align:center;
+}
+
+
+.register .container2-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7vw;
+    border: 1px solid;
+    height: 67vh;
+    width: 69vw;
+    background-color: white;
+    padding: 0vw 5vw;
+}
+
+.register .container2-dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--chakra-colors-gray-800);
+    border-radius: 7vw;
+    border: 1px solid;
+    height: 67vh;
+    width: 69vw;
+    padding: 0vw 5vw;
+}
+
+
+.register-input::placeholder {
+    font-size: 4vw;
+}
+
+.register-input {
+    padding: 5vw 0 4vw 0;
+    margin: 1vw 0;
+}
+
+.register-file-input{
+    margin: 1vw 0;
+}
+
+.register-btn span {
+    font-size: 3.5vw;
+    padding: 0 5vw;
+}
+
+.register-btn {
+    padding: 4vw 0vw;
+}
+
+.register-box {
+    font-size: 3.5vw;
+}
+
+.register-box a button {
+    padding-top: 0vw;
+    font-size: 3.5vw;
+}
+
+
+@media screen and (min-width:500px) {
+    .register .heading {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .register .heading {
+        font-size: 8vw;
+    }
+
+    .register-main-box{
+        margin:5vw;
+    }
+
+    .register-box,
+    .register-box a button {
+        font-size: 3.4vw;
+        padding: 1vw 0;
+    }
+
+    .forgotBox button {
+        font-size: 2.5vw;
+        padding: 1vw 0;
+    }
+}
+
+@media screen and (min-width:1080px) {
+    .register {
+        margin: 10vw 0 -5vw 0;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .register .heading{
+        margin-bottom:-1vw;
+        font-size:2.5vw;
+    }
+
+    .register-main-box{
+        margin:1vw;
+    }
+
+    .forgotBox button {
+        font-size: 1vw;
+        padding: 0vw 0;
+    }
+
+    .register .container {
+        margin-top: 8vw;
+        height: 78vh;
+        width: 30vw;
+        border-radius: 3vw;
+    }
+
+    .register .container2-light {
+        border-radius: 3vw;
+        height: 71vh;
+        width: 26.5vw;
+        padding: 3vw 2vw;
+    }
+
+    .register .container2-dark {
+        border-radius: 3vw;
+        height: 71vh;
+        width: 26.5vw;
+        padding: 3vw 2vw;
+    }
+
+    .register-input::placeholder {
+        font-size: 1vw;
+    }
+
+    .register-input {
+        padding: 0;
+        margin: .3vw 0;
+        border: 1px solid black;
+        border-radius: 30px;
+    }
+
+    .register-file-input{
+     margin-top:.4vw;
+    }
+
+    .register-btn span {
+        font-size: 1vw;
+        padding: 0 8.7vw;
+    }
+
+    .register-btn {
+        padding: 0;
+    }
+
+    .register-box {
+        font-size: 1.1vw;
+        text-align: center;
+        padding: 0;
+    }
+
+    .register-box a button {
+        padding: 0vw;
+        font-size: 1.1vw;
+    }
+}

@@ -1,0 +1,16 @@
+
+@media screen and (max-width:500px){
+    .courses{
+        margin:20vw;
+    }
+}
+@media screen and (min-width:500px){
+    .courses{
+        margin:8vw;
+    }
+}
+@media screen and (min-width:1240px){
+    .courses{
+        margin:4vw;
+    }
+}

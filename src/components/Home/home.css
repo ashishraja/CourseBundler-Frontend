@@ -1,0 +1,129 @@
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+.home-stack{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-img{
+    filter:drop-shadow(0 40px 10px rgba(0,0,0,.3));
+    animation:homeAnimation 1s infinite ease-in-out alternate;
+    height:200px;
+    width:200px;
+    box-shadow:0 0 1vw white;
+}
+@keyframes homeAnimation{
+    to{
+        transform : translateY(-10px);
+    }
+}
+.home-vstack{
+    padding:10vw 20vw;
+}
+.home-title , .home-text{
+    text-align: center;
+}
+
+.home-stack div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-box{
+    display: flex;
+    padding:8vw;
+    align-items: center;
+    flex-direction: column;
+}
+.brands svg{
+    color:white;
+    font-size: 7vw;
+    transition: color .5s;
+    margin:2vw 5vw;
+}
+.brands svg:hover{
+    color:rgba(255,221,0);
+}
+
+.container2{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container2 video{
+    border: 1px solid rgba(0,0,0,.18);
+    width: 70vw;
+    margin:10vw 0;
+    border-radius:5px;
+    outline: none;
+}
+
+@media screen and (min-width:500px){
+
+    .home-vstack .home-title {
+        font-size:9vw;
+    }
+    
+    .home-vstack .home-text {
+        font-size:5vw;
+    }
+    .home-link button{
+        font-size:4vw;
+        padding:4vw 3vw;
+        margin:2vw auto;
+    }
+    .home-img{
+        height:450px;
+        width:450px;
+    }
+
+}
+
+@media screen and (min-width:1080px){
+ 
+    .home-container .home-stack{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .home-img{
+        height:200px;
+        width:200px;
+    }
+    .home-link button{
+        font-size:1.5vw;
+        padding:2vw 3vw;
+        margin:.5vw 0vw;
+    }
+     
+    .home-stack .home-vstack{
+        display: flex;
+        align-items: flex-end;
+        padding:0vw 10vw 0 0;
+        width:60vw;
+    }
+
+    .home-vstack .home-title {
+        font-size:3.5vw;
+    }
+    
+    .home-vstack .home-text {
+        font-size:1.5vw;
+    }
+    .home-box{
+        padding:2vw;
+    }
+    .brands svg{
+        margin:1.5vw 6vw;
+        font-size: 4vw;
+    }
+    .brands svg:hover{
+        color:rgba(255,221,0);
+    }
+    
+} 
