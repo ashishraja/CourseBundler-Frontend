@@ -67,8 +67,8 @@
 }
 
 .login-btn span {
-    font-size: 3.5vw;
-    padding: 0 5vw;
+    font-size: 3.7vw;
+    padding: 0 20vw;
 }
 
 .login-btn {
@@ -94,6 +94,9 @@
 @media screen and (min-width:768px) {
     .login .heading {
         font-size: 6vw;
+    }
+    .login-btn span {
+        padding: 0 24vw;
     }
 
     .login-box,

@@ -94,10 +94,8 @@ const TandC = () => (
 const About = () => {
 
     const dispatch = useDispatch();
-    const {
-        message
-    } = useSelector(state => state.profile);
-    console.log(message);
+    const { message } = useSelector(state => state.profile);
+    
     useEffect(() => {
         dispatch(getStats());
     }, [dispatch]);
@@ -139,7 +137,7 @@ const About = () => {
                 </Text>
 
                 <Link to="/subscribe">
-                    <Button ml={["6",'']} variant={'ghost'} colorScheme="yellow">
+                    <Button ml={["6", '']} variant={'ghost'} colorScheme="yellow">
                         Checkout Our Plan
                     </Button>
                 </Link>

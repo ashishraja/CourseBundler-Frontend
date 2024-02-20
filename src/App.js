@@ -23,11 +23,11 @@ import CreateCourse from './components/Admin/CreateCourse/CreateCourse.jsx';
 import Users from './components/Admin/Users/Users.jsx';
 import AdminCourses from './components/Admin/AdminCourses/AdminCourses.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import toast, { Toaster } from "react-hot-toast";
 import { getMyProfile } from './redux/actions/userAction.js';
 import Loader from './components/Layout/Loader/Loader.jsx';
 import { ProtectedRoute } from "protected-route-react"
 import About from './components/About/About.jsx';
+import Cookies from 'js-cookie';
 
 
 function App() {
@@ -39,11 +39,17 @@ function App() {
 
   useEffect(() => {
 
-    if (message) {
-      toast.success(message.message);
+    try {
+      const token = Cookies.get('userToken');
+      if (token) {
+        dispatch(getMyProfile()).then(() => setLoadingUser(false));
+      }
+    } catch (error) {
+      console.log("error");
+    } finally {
+      setLoadingUser(false);
     }
 
-    dispatch(getMyProfile()).then(() => setLoadingUser(false));
   }, [dispatch, message]);
 
   if (loadingUser) {
@@ -133,7 +139,7 @@ function App() {
 
             <Route path="/course/:id" element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <CoursePage user={user}/>
+                <CoursePage user={user} />
               </ProtectedRoute>
             } />
 
@@ -201,7 +207,6 @@ function App() {
 
           </Routes>
           <Footer />
-          <Toaster />
         </>
       )}
     </Router>

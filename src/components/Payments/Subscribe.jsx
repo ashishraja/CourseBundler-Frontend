@@ -1,13 +1,14 @@
 import { Text, Box, Button, Container, Heading, VStack } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import { buySubscription } from '../../redux/actions/userAction'
 import { clearError } from '../../redux/reducers/courseReducer'
 import { clearSubscriptionError } from '../../redux/reducers/userReducer'
 import { server } from '../../redux/store'
 import "./Subscribe.css"
+import { toastDisplay } from '../Profile/UpdateProfile'
 
 const Subscribe = ({user}) => {
 
@@ -25,12 +26,12 @@ const Subscribe = ({user}) => {
 
   useEffect(()=>{
     if(error){
-      toast.error(error.toString());
+      toast.error(error.toString() , toastDisplay);
       dispatch(clearSubscriptionError());
     }
 
     if(courseError){
-      toast.error(courseError.toString());
+      toast.error(courseError.toString() , toastDisplay);
       dispatch(clearError());
     }
 

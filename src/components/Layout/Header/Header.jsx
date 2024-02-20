@@ -6,8 +6,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./header.css"
 import { useDispatch } from 'react-redux'
 import { logout } from '../../../redux/actions/userAction.js'
-import { toast } from 'react-hot-toast'
+import { toast } from 'react-toastify'
 import { clearMessage } from '../../../redux/reducers/userReducer'
+import { toastDisplay } from '../../Profile/UpdateProfile'
+import Cookies from 'js-cookie'
 
 const LinkButton = ({ url = "/", title = "Home", onClose }) => (
   <Link onClick={onClose} to={url}>
@@ -24,7 +26,8 @@ const Header = ({ isAuthenticated = false, user }) => {
   const logoutHandler = async() => {
     onClose();
     await dispatch(logout());
-    toast.success("Logged Out Successfully");
+    toast.success("Logged Out Successfully" , toastDisplay);
+    Cookies.remove('userToken');
     dispatch(clearMessage());
     navigate("/");
   }

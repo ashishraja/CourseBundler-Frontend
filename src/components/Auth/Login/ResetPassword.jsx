@@ -7,9 +7,10 @@ import Aos from "aos";
 import "aos/dist/aos.css"
 import {SiGnuprivacyguard} from "react-icons/si"
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { resetPassword } from '../../../redux/actions/ProfileAction';
 import { clearProfileError, clearProfileMessage } from '../../../redux/reducers/userReducer';
+import { toastDisplay } from '../../Profile/UpdateProfile';
 
 
 
@@ -29,11 +30,11 @@ const ResetPassword = () => {
 
     useEffect(() => {
         if(error){
-           toast.error(error.toString());
+           toast.error(error.toString() , toastDisplay);
            dispatch(clearProfileError());
         }
         if(message){
-           toast.success(message.message);
+           toast.success(message.message , toastDisplay);
            dispatch(clearProfileMessage());
            navigate("/login");
         }

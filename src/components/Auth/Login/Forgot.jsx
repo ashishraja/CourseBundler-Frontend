@@ -8,9 +8,10 @@ import "aos/dist/aos.css"
 import {BsExclamationTriangleFill} from "react-icons/bs"
 import {FaLessThan} from "react-icons/fa"
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { forgotPassword } from '../../../redux/actions/ProfileAction';
 import { clearProfileError, clearProfileMessage } from '../../../redux/reducers/userReducer';
+import { toastDisplay } from '../../Profile/UpdateProfile';
 
 
 const Forgot = () => {
@@ -27,11 +28,11 @@ const Forgot = () => {
 
     useEffect(() => {
         if(error){
-           toast.error(error.toString());
+           toast.error(error.toString() , toastDisplay);
            dispatch(clearProfileError());
         }
         if(message){
-           toast.success("Request Link Sent Successfully...");
+           toast.success(message.message , toastDisplay);
            dispatch(clearProfileMessage());
         }
    

@@ -1,12 +1,13 @@
 import { Button, Container, Heading, Input, VStack } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePassword } from '../../redux/actions/ProfileAction';
 import { clearProfileError, clearProfileMessage } from '../../redux/reducers/userReducer';
 import { useNavigate } from "react-router-dom";
 import Loader from '../../components/Layout/Loader/Loader.jsx';
 import { getMyProfile } from '../../redux/actions/userAction';
+import { toastDisplay } from './UpdateProfile';
 
 const ChangePassword = () => {
     
@@ -15,25 +16,25 @@ const ChangePassword = () => {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    
+    const { message, error, loading } = useSelector(state => state.profile);
+
     const submitHandler = async(e) => {
         e.preventDefault();
         await dispatch(updatePassword(oldPassword, newPassword, confirmPassword));
-        await dispatch(getMyProfile());
-        await navigate("/profile");
-        await dispatch(clearProfileMessage());
     }
 
-    const { message, error, loading } = useSelector(state => state.profile);
 
     useEffect(() => {
         if (error) {
-            toast.error(error.toString());
+            toast.error(error.toString() , toastDisplay);
             dispatch(clearProfileError());
         }
 
         if (message) {
-            toast.success(message.message);
+            toast.success(message.message , toastDisplay);
+            dispatch(getMyProfile());
+            navigate("/profile");
+            dispatch(clearProfileMessage());
         }
 
     }, [dispatch, error, message, navigate]);

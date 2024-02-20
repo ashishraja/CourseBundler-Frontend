@@ -4,10 +4,11 @@ import { RiDeleteBin7Fill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, getAllUsers, getSingleUserDetails, updateUserRole } from '../../../redux/actions/adminAction';
 import Sidebar from '../Sidebar'
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { clearError, clearMessage } from '../../../redux/reducers/adminReducer';
 import UserModal from './UserModal';
 import Loader from '../../Layout/Loader/Loader';
+import { toastDisplay } from '../../Profile/UpdateProfile';
 
 const Users = () => {
 
@@ -27,7 +28,6 @@ const Users = () => {
 
   const deleteHandler = async (userId) => {
     await dispatch(deleteUser(userId));
-    dispatch(getAllUsers());
   }
 
   const getUserDetailsHandler = (userId, name, email, role, avatarUrl, createdAt) => {
@@ -43,12 +43,13 @@ const Users = () => {
 
   useEffect(() => {
     if (error) {
-      toast.error(error.toString());
+      toast.error(error.toString() , toastDisplay);
       dispatch(clearError());
     }
 
     if (message && message.message) {
-      toast.success(message.message);
+      toast.success(message.message , toastDisplay);
+      dispatch(getAllUsers());
       dispatch(clearMessage());
     }
 

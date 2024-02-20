@@ -5,9 +5,10 @@ import "./courses.css"
 import {useDispatch, useSelector} from "react-redux";
 import { getAllCourses } from '../../redux/actions/courseActions';
 import { clearError, clearMessage } from '../../redux/reducers/courseReducer';
-import toast from "react-hot-toast"
+import { toast } from "react-toastify"
 import { addToPlaylist } from '../../redux/actions/ProfileAction';
 import { getMyProfile } from '../../redux/actions/userAction';
+import { toastDisplay } from '../Profile/UpdateProfile';
 
 const Course = ({views,title,imageSrc,id,addToPlayListHandler,creator,description,lecturesCount,loading})=>{
 
@@ -43,7 +44,7 @@ const Course = ({views,title,imageSrc,id,addToPlayListHandler,creator,descriptio
 
             <Stack direction={["colum","row"]} alignItems="center">
                 <Link to={`/course/${id}`}>
-                    <Button colorScheme={"yellow"}>
+                    <Button type="button" colorScheme={"yellow"}>
                         Watch Now
                     </Button>
                 </Link>
@@ -64,7 +65,6 @@ const Courses = () => {
 
     const addToPlayListHandler = async(courseId)=>{
         await dispatch(addToPlaylist(courseId));
-        await dispatch(getMyProfile());
     }
 
     const categories = [
@@ -79,11 +79,12 @@ const Courses = () => {
     const {loading , message , courses ,error} = useSelector(state=>state.course);
     useEffect(()=>{
         if(error){
-            toast.error(error.toString());
+            toast.error(error.toString() , toastDisplay);
             dispatch(clearError());
         }
         if(message){
-            toast.success(message.message);
+            toast.success(message.message , toastDisplay);
+            dispatch(getMyProfile());
             dispatch(clearMessage());
         }
         dispatch(getAllCourses(category,keyword));

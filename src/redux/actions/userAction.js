@@ -20,9 +20,11 @@ export const login = (email, password) => async (dispatch) => {
       }
     );
 
-    dispatch(loginSuccess({ user: data.user, message: data.message }));
+    const response = dispatch(loginSuccess(data));
+    return response;
   } catch (error) {
-    dispatch(loginFail(error.response.data.message));
+    const response = dispatch(loginFail(error.response.data.message));
+    return response;
   }
 };
 

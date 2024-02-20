@@ -6,9 +6,10 @@ import Sidebar from '../Sidebar'
 import CourseModal from './CourseModal';
 import { getAllCourses, getCourseLectures } from '../../../redux/actions/courseActions';
 import { addLectures, deleteCourse, deleteLectures } from '../../../redux/actions/adminAction';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { clearError, clearMessage } from '../../../redux/reducers/adminReducer';
 import Loader from '../../Layout/Loader/Loader';
+import { toastDisplay } from '../../Profile/UpdateProfile';
 
 const AdminCourses = () => {
 
@@ -51,12 +52,12 @@ const AdminCourses = () => {
 
   useEffect(() => {
     if (error) {
-      toast.error(error.toString());
+      toast.error(error.toString() , toastDisplay);
       dispatch(clearError());
     }
 
     if (message && message.message) {
-      toast.success(message.message);
+      toast.success(message.message , toastDisplay);
       dispatch(clearMessage());
     }
 

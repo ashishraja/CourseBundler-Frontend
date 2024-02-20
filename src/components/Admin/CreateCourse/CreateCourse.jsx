@@ -1,11 +1,12 @@
 import { Grid, Image , Container, Heading, VStack, Select, Input, Button } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { createCourse } from '../../../redux/actions/adminAction';
 import { clearError , clearMessage } from '../../../redux/reducers/adminReducer';
 import { fileUploadCss } from '../../Profile/Profile';
 import Sidebar from '../Sidebar'
+import { toastDisplay } from '../../Profile/UpdateProfile';
 
 const CreateCourse = () => {
 
@@ -55,12 +56,12 @@ const CreateCourse = () => {
     useEffect(()=>{
 
         if(error){
-            toast.error(error.toString());
+            toast.error(error.toString() , toastDisplay);
             dispatch(clearError());
         }
 
         if(message && message.message){
-            toast.success(message.message);
+            toast.success(message.message , toastDisplay);
             dispatch(clearMessage());
         }
     },[dispatch,error,message]);

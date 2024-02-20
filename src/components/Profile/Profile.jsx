@@ -1,13 +1,14 @@
 import { Button, Text, Image, Heading, Stack, Avatar, Container, HStack, VStack, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody, Input, ModalFooter, useDisclosure, ModalHeader } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cancelSubscription, removeFromPlaylist, updateProfilePicture } from '../../redux/actions/ProfileAction';
 import { getMyProfile } from '../../redux/actions/userAction';
-import { clearError, clearMessage, clearProfileError, clearProfileMessage } from '../../redux/reducers/userReducer';
+import { clearProfileError, clearProfileMessage, clearSubscriptionError, clearSubscriptionMessage } from '../../redux/reducers/userReducer';
 import Loader from '../Layout/Loader/Loader';
+import { toastDisplay } from './UpdateProfile';
 
 
 export const fileUploadCss = {
@@ -30,56 +31,51 @@ const Profile = ({ user }) => {
 
     const removeFromPlaylistHandler = async (id) => {
         await dispatch(removeFromPlaylist(id));
-        await dispatch(getMyProfile());
-        await  navigate("/profile");
-        await dispatch(clearProfileMessage());
     }
 
     const changeImageSubmitHandler = async (e, image) => {
         e.preventDefault();
         if (!image) {
-            toast.error('No file selected');
+            toast.error('No file selected' , toastDisplay);
             return;
         }
 
         const myForm = new FormData();
         myForm.append("file", image);
         await dispatch(updateProfilePicture(myForm));
-        await dispatch(getMyProfile());
         await  navigate("/profile");
-        await dispatch(clearProfileMessage());
         onClose();
     }
 
-    const cancelSubscriptionHandler = async() => {
-       await dispatch(cancelSubscription());
-       await dispatch(getMyProfile());
-        await  navigate("/profile");
-        await dispatch(clearProfileMessage());
-    }
+    const cancelSubscriptionHandler = async () => {
+        await dispatch(cancelSubscription());      
+      }
 
     useEffect(() => {
-
         if (error) {
-            toast.error(error.toString());
-            dispatch(clearProfileError());
+          toast.error(error.toString() , toastDisplay);
+          dispatch(clearProfileError());
         }
-
+      
         if (message) {
-            toast.success(message.message);
+          toast.success(message.message , toastDisplay);
+          dispatch(getMyProfile());
+          dispatch(clearProfileMessage());
         }
-
+      
         if (subscriptionError) {
-            toast.error(subscriptionError.toString());
-            dispatch(clearError());
+          toast.error(subscriptionError.toString() , toastDisplay);
+          dispatch(clearSubscriptionError());
         }
-
+      
         if (subscriptionMessage) {
-            toast.success(subscriptionMessage.message);
-            dispatch(clearMessage());
+          toast.success(subscriptionMessage.message , toastDisplay);
+          dispatch(getMyProfile());
+          navigate("/profile");
+          dispatch(clearSubscriptionMessage());
         }
-
-    }, [dispatch, error, message ,subscriptionError , subscriptionMessage , navigate]);
+      
+      }, [dispatch, error, message ,subscriptionError , subscriptionMessage , navigate]);
 
     return (
         <>
@@ -122,11 +118,11 @@ const Profile = ({ user }) => {
                                         {user.subscription && user.subscription.status === "active" ? (
                                             <Button isLoading={subscriptionLoading} onClick={cancelSubscriptionHandler} color={'yellow.500'} variant={'unstyled'} >Cancel Subscription</Button>
                                         ) : (
-                                            <a href="/subscribe">
-                                                <Button colorScheme={"yellow"}>
+                                            <Link to="/subscribe">
+                                                <Button type="button" colorScheme={"yellow"}>
                                                     Subscribe
                                                 </Button>
-                                            </a>
+                                            </Link>
                                         )}
                                     </HStack>
                                 )}
@@ -135,12 +131,12 @@ const Profile = ({ user }) => {
                                     direction={["column", "row"]}
                                     alignItems={["center"]}
                                 >
-                                    <a href="/updateprofile">
-                                        <Button >Update Profile</Button>
-                                    </a>
-                                    <a href="/changepassword">
-                                        <Button >Change Password</Button>
-                                    </a>
+                                    <Link to="/updateprofile">
+                                        <Button type="button" >Update Profile</Button>
+                                    </Link>
+                                    <Link to="/changepassword">
+                                        <Button type="button" >Change Password</Button>
+                                    </Link>
                                 </Stack>
 
                             </VStack>
@@ -160,11 +156,11 @@ const Profile = ({ user }) => {
                                             <Image boxSize={"48"} src={element.poster} objectFit={"cover"} />
 
                                             <HStack p="4">
-                                                <a href={`/course/${element.course}`}>
-                                                    <Button variant={'ghost'} colorScheme='yellow'>
+                                                <Link to={`/course/${element.course}`}>
+                                                    <Button type="button" variant={'ghost'} colorScheme='yellow'>
                                                         Watch Now
                                                     </Button>
-                                                </a>
+                                                </Link>
 
                                                 <Button isLoading={loading} onClick={() => removeFromPlaylistHandler(element.course)}>
                                                     <RiDeleteBin7Fill />
