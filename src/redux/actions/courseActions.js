@@ -1,6 +1,6 @@
 import {server} from "../store.js";
 import axios from 'axios';
-import { courseRequest, courseRequestFail, courseRequestSuccess, getCourseLecturesFail, getCourseLecturesRequest, getCourseLecturesSuccess } from "../reducers/courseReducer.js";
+import { courseByIdRequest, courseByIdRequestSuccess, courseRequest, courseRequestFail, courseRequestSuccess, getCourseLecturesFail, getCourseLecturesRequest, getCourseLecturesSuccess } from "../reducers/courseReducer.js";
 
 
 export const getAllCourses = (category="",keyword="") => 
@@ -24,6 +24,28 @@ export const getAllCourses = (category="",keyword="") =>
             dispatch(courseRequestFail(error.response.data.message));
         }
 };
+
+
+
+export const getCourseById = (id) => async dispatch => {
+  try{
+    dispatch(courseByIdRequest());
+
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/course/${id}`,
+      {
+        withCredentials:true
+      }
+    );
+
+    console.log(data);
+
+    dispatch(courseByIdRequestSuccess({ course : data.course }));
+
+}catch(error){
+    dispatch(courseRequestFail(error.response.data.message));
+}
+}
 
 export const getCourseLectures = id => async dispatch => {
   try{

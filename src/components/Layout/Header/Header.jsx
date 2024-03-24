@@ -10,7 +10,10 @@ import { toast } from 'react-toastify'
 import { clearMessage } from '../../../redux/reducers/userReducer'
 import { toastDisplay } from '../../Profile/UpdateProfile'
 import Cookies from 'js-cookie'
-
+import { Image } from "@chakra-ui/react"
+import blackImg from "./../../../assets/images/logoblack.png"
+import whiteImg from "./../../../assets/images/logowhite.png"
+import { useColorMode } from '@chakra-ui/react';
 const LinkButton = ({ url = "/", title = "Home", onClose }) => (
   <Link onClick={onClose} to={url}>
     <Button variant={"ghost"}>{title}</Button>
@@ -19,14 +22,16 @@ const LinkButton = ({ url = "/", title = "Home", onClose }) => (
 
 const Header = ({ isAuthenticated = false, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode } = useColorMode();
 
+  const homeimg = whiteImg;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = async() => {
+  const logoutHandler = async () => {
     onClose();
     await dispatch(logout());
-    toast.success("Logged Out Successfully" , toastDisplay);
+    toast.success("Logged Out Successfully", toastDisplay);
     Cookies.remove('userToken');
     dispatch(clearMessage());
     navigate("/");
@@ -34,6 +39,9 @@ const Header = ({ isAuthenticated = false, user }) => {
 
   return (
     <div className="header-mainDiv">
+      <div className="header-img">
+        <Image className="home-img" src={homeimg} alt="logo-img" />
+      </div>
       <ColorModeSwitcher />
       <Button
         onClick={onOpen}
@@ -47,6 +55,7 @@ const Header = ({ isAuthenticated = false, user }) => {
         left="6"
       >
         <RiMenu5Fill />
+        
       </Button>
       <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay backdropFilter={"blur(3px)"} />
@@ -57,9 +66,12 @@ const Header = ({ isAuthenticated = false, user }) => {
 
               <LinkButton onClose={onClose} url="/" title="Home" />
               <LinkButton onClose={onClose} url="/courses" title="Browse all the courses" />
+              <LinkButton onClose={onClose} url="/forum" title="Community Forum" />
               <LinkButton onClose={onClose} url="/request" title="Request a Course" />
               <LinkButton onClose={onClose} url="/contact" title="Contact" />
               <LinkButton onClose={onClose} url="/about" title="About" />
+              <LinkButton onClose={onClose} url="/room/26Dev" title="Live Stream Room" />
+              <LinkButton onClose={onClose} url="/feedbacks" title="Feedbacks" />
 
               <HStack
                 justifyContent={"space-evenly"}
@@ -117,4 +129,3 @@ const Header = ({ isAuthenticated = false, user }) => {
 }
 
 export default Header
-

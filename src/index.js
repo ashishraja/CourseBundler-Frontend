@@ -9,6 +9,7 @@ import {disableReactDevTools} from "@fvilers/disable-react-devtools";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 if(process.env.NODE_ENV === 'production')
 {
   disableReactDevTools();
@@ -24,7 +25,10 @@ root.render(
         <ChakraProvider theme={theme}>
           <ColorModeScript />
           <ToastContainer />
+          
           <App />
+          
+
         </ChakraProvider>
     </ReduxProvider>
   </StrictMode>

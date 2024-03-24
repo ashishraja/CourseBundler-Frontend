@@ -20,6 +20,7 @@ import UpdateProfile from './components/Profile/UpdateProfile.jsx';
 import ChangePassword from './components/Profile/ChangePassword.jsx';
 import Dashboard from './components/Admin/DashBoard/Dashboard.jsx';
 import CreateCourse from './components/Admin/CreateCourse/CreateCourse.jsx';
+import CreateRoom from './components/Admin/CreateRoom/CreateRoom.jsx';
 import Users from './components/Admin/Users/Users.jsx';
 import AdminCourses from './components/Admin/AdminCourses/AdminCourses.jsx';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,29 +29,25 @@ import Loader from './components/Layout/Loader/Loader.jsx';
 import { ProtectedRoute } from "protected-route-react"
 import About from './components/About/About.jsx';
 import Cookies from 'js-cookie';
-
-
+import ForumRoom from './components/Community/ForumRoom.jsx';
+// import LiveVideo from './livevideo/index.jsx';
+import Tweet from './components/feedback/feedback.jsx';
+import Room from './liveroom/room.jsx'
 function App() {
 
-  const { loading, isAuthenticated, user, message } = useSelector(state => state.user);
+  const { loading, isAuthenticated, user } = useSelector(state => state.user);
   const [loadingUser, setLoadingUser] = useState(true);
   const dispatch = useDispatch();
 
 
   useEffect(() => {
-
-    try {
-      const token = Cookies.get('userToken');
-      if (token) {
-        dispatch(getMyProfile()).then(() => setLoadingUser(false));
-      }
-    } catch (error) {
-      console.log("error");
-    } finally {
+    const token = Cookies.get('userToken');
+    if (token) {
+      dispatch(getMyProfile()).then(() => setLoadingUser(false));
+    } else {
       setLoadingUser(false);
     }
-
-  }, [dispatch, message]);
+  }, [dispatch]);
 
   if (loadingUser) {
     return <Loader />
@@ -83,6 +80,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
 
             <Route
               path="/resetpassword/:token"
@@ -186,6 +184,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/admin/createroom"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated} isAdmin={user && user.role === "admin"} adminRoute={true}>
+                  <CreateRoom />
+                </ProtectedRoute>
+              }
+            />
 
             <Route
               path="/admin/courses"
@@ -204,6 +210,26 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              path="/room/:roomId"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Room />
+                </ProtectedRoute>
+              } />
+
+            <Route
+              path="/forum"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <ForumRoom />
+                </ProtectedRoute>
+              } />
+
+            <Route
+            path="feedbacks"
+            element={<Tweet/>}/>  
 
           </Routes>
           <Footer />

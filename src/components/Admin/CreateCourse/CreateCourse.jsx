@@ -21,12 +21,12 @@ const CreateCourse = () => {
     const {message,error,loading} = useSelector(state=>state.admin);
 
     const categories = [
-        "Web Development",
-        "Artificial Intelligence",
-        "Data Scientist",
-        "App Development",
-        "Data Structures and Algorithms",
-        "Game Development"
+        "All Courses" ,
+        "Blouse Mastery" ,
+        "Western Style" ,
+        "Neck Blouse Workshop" ,
+        "Multi Purpose Gown" , 
+        "Men's Shirt Workshop"
     ];
 
     const changeImageHandler = (e) => {

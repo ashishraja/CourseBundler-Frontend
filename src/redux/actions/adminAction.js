@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addLecturesFail, addLecturesRequest, addLecturesSuccess, createCourseFail, createCourseRequest, createCourseSuccess, deleteCourseFail, deleteCourseRequest, deleteCourseSuccess, deleteLectureFail, deleteLectureRequest, deleteLectureSuccess, deleteUserFail, deleteUserRequest, deleteUserSuccess, getAdminStatsFail, getAdminStatsRequest, getAdminStatsSuccess, getAllUsersFail, getAllUsersRequest, getAllUsersSuccess , getSingleUserFail, getSingleUserRequest, getSingleUserSuccess, updateUserRoleFail, updateUserRoleRequest, updateUserRoleSuccess } from "../reducers/adminReducer";
+import { addLecturesFail, addLecturesRequest, addLecturesSuccess, createCourseFail, createCourseRequest, createCourseSuccess, deleteCourseFail, deleteCourseRequest, deleteCourseSuccess, deleteLectureFail, deleteLectureRequest, deleteLectureSuccess, deleteUserFail, deleteUserRequest, deleteUserSuccess, getAdminStatsFail, getAdminStatsRequest, getAdminStatsSuccess, getAllUsersFail, getAllUsersRequest, getAllUsersSuccess , getSingleUserFail, getSingleUserRequest, getSingleUserSuccess, updateUserRoleFail, updateUserRoleRequest, updateUserRoleSuccess, createRoomRequest, createRoomSuccess, createRoomFail } from "../reducers/adminReducer";
 import { server } from "../store";
 
 export const createCourse = (formData) => 
@@ -23,6 +23,10 @@ export const createCourse = (formData) =>
         }catch(error){
             dispatch(createCourseFail(error.response.data.message));
         }
+};
+export const createRoom = (formData) => 
+    async dispatch => {
+      
 };
 
 export const deleteCourse = (id) => 

@@ -2,7 +2,7 @@
     .header-mainDiv{
         position: fixed;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         overflow: hidden;
         z-index: 1;
@@ -14,3 +14,16 @@
         top:0;
     }
 /* } */
+
+.header-mainDiv .header-img .home-img{
+    width:220px;
+    height:80px;
+    object-fit: contain;
+}
+
+@media screen and (max-width:1080px){
+    .header-mainDiv .header-img .home-img{
+        width:120px;
+        height:40px;
+    }
+}

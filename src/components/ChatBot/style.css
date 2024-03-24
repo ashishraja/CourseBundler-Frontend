@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+
+}
+
+body {
+  font-family: 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, Helvetica,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	background-color: rgba(223, 242, 247, .5);
+	height: 100%;
+	margin: 0;
+}
+
+span {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.container {
+	display: flex;
+  justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.chat {
+	height: 300px;
+	width: 50vw;
+	display: flex;
+	flex-direction: column;
+  justify-content: center;
+	align-items: center;
+} 
+
+::-webkit-input-placeholder { 
+	color: .711 
+}
+ 
+input { 
+	border: 0; 
+	padding: 15px; 
+	margin-left: auto;
+	border-radius: 10px; 
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	height: 90%;
+	width: 100%;
+	background-color: white;
+	padding: 15px;
+	margin: 15px;
+	border-radius: 10px;
+}
+.hidden {
+    display: none;
+}
+
+#bot {
+	margin-left: auto;
+}
+
+.bot {
+	font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
+	monospace;
+}
+
+.avatar {
+	height: 25px;
+}
+
+.response {
+	display: flex;
+	align-items: center;
+	margin: 1%;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 980px) {
+  .container {
+		flex-direction: column; 
+		justify-content: flex-start;
+	}
+	.chat {
+		width: 75vw;
+		margin: 10vw;
+	}
+}
+
+/* Add this to your existing style.css */
+
+.chat {
+    position: fixed;
+    bottom: 90px;
+    right: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+	max-height: fit-content;
+    width: 100%;
+    max-height: 500px;
+    z-index: 9999; /* Ensure chat appears above other content */
+    transition: transform 0.3s ease-in-out; /* Add smooth transition effect */
+    /* transform: translateY(100%); */
+}
+
+/* Hide chat window by default */
+.chat.hidden {
+    transform: translateY(100%);
+}
+
+/* Show chat window when active */
+.chat.active {
+	
+    transform: translateY(-100vh);
+}
+
+/* Style for chat messages container */
+.messages {
+	overflow-x: hidden;
+    padding: 10px;
+}
+
+/* Style for chat input */
+#input {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* ------------------------------------- */
+/* Add this to your existing style.css */
+
+.chat-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Ensure button appears above other content */
+}
+
+.chat-btn:hover {
+    background-color: #0056b3;
+}
+
+.chat-btn:focus {
+    outline: none;
+}
+
+/* Style for the chat button when it's active (e.g., when chat box is visible) */
+.chat-btn.active {
+    background-color: #dc3545;
+}

@@ -32,6 +32,12 @@ const Sidebar = () => {
                 active={location.pathname === "/admin/createcourse"}
                 url="createcourse"
             />
+            {/* <LinkButton
+                Icon={RiAddCircleFill}
+                text="Create Room"
+                active={location.pathname === "/admin/createroom"}
+                url="createroom"
+            /> */}
 
         </VStack>
     )

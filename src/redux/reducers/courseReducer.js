@@ -18,6 +18,17 @@ const courseSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    courseByIdRequest: (state) => {
+      state.loading = true;
+    },
+    courseByIdRequestSuccess: (state, action) => {
+      state.loading = false;
+      state.courses = action.payload;
+    },
+    courseByIdRequestFail: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
     addToPlaylistRequest: (state) => {
       state.loading = true;
     },
@@ -54,6 +65,9 @@ export const {
   courseRequest,
   courseRequestSuccess,
   courseRequestFail,
+  courseByIdRequest,
+  courseByIdRequestSuccess,
+  courseByIdRequestFail,
   addToPlaylistRequest,
   addToPlaylistSuccess,
   addToPlaylistFail,

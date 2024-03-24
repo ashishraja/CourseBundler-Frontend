@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { buySubscriptionFail, buySubscriptionRequest, buySubscriptionSuccess, getStatsFail, getStatsRequest, getStatsSuccess, loadUserFail , loadUserRequest , loadUserSuccess , loginFail, loginRequest, loginSuccess, logoutFail, logoutRequest, logoutSuccess, registerFail, registerRequest, registerSuccess } from '../reducers/userReducer.js';
+import { buySubscriptionFail, buySubscriptionRequest, buySubscriptionSuccess, getStatsFail, getStatsRequest, getStatsSuccess, loadUserFail, loadUserRequest, loadUserSuccess, loginFail, loginRequest, loginSuccess, logoutFail, logoutRequest, logoutSuccess, registerFail, registerRequest, registerSuccess } from '../reducers/userReducer.js';
 import { server } from "../store.js";
 
 
@@ -14,9 +14,9 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       {
         config,
-        mode:"cors",
-        credentials:"include",
-        withCredentials:true
+        mode: "cors",
+        credentials: "include",
+        withCredentials: true
       }
     );
 
@@ -38,11 +38,11 @@ export const getMyProfile = () => async (dispatch) => {
       `${server}/profile`,
       {
         config,
-        withCredentials:true
+        withCredentials: true
       }
     );
-
     dispatch(loadUserSuccess({ user: data.user }));
+
   } catch (error) {
     dispatch(loadUserFail(error.response.data.message));
   }
@@ -56,7 +56,7 @@ export const logout = () => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true, 
+      withCredentials: true,
     };
 
     const { data } = await axios.get(
@@ -83,9 +83,9 @@ export const register = (formdata) => async (dispatch) => {
       formdata,
       {
         config,
-        mode:"cors",
-        credentials:"include",
-        withCredentials:true
+        mode: "cors",
+        credentials: "include",
+        withCredentials: true
       }
     );
 
@@ -102,34 +102,34 @@ export const buySubscription = () => async (dispatch) => {
     const { data } = await axios.get(
       `${server}/subscription`,
       {
-        withCredentials:true
+        withCredentials: true
       }
     );
 
-    dispatch(buySubscriptionSuccess({ subscriptionId: data.subscriptionId , message: data.message }));
+    dispatch(buySubscriptionSuccess({ subscriptionId: data.subscriptionId, message: data.message }));
   } catch (error) {
     dispatch(buySubscriptionFail(error.response.data.message));
   }
 };
 
-export const getStats = () => 
-    async dispatch => {
-        try{
-            dispatch(getStatsRequest());
-            
-            const config = { headers: { "Content-Type": "application/json" } };
-            
-            const { data } = await axios.get(
-              `${server}/getstats`,
-              {
-                config,
-                withCredentials:true
-              }
-            );
-              
-            dispatch(getStatsSuccess( data ));
+export const getStats = () =>
+  async dispatch => {
+    try {
+      dispatch(getStatsRequest());
 
-        }catch(error){
-            dispatch(getStatsFail(error.response.data.message));
+      const config = { headers: { "Content-Type": "application/json" } };
+
+      const { data } = await axios.get(
+        `${server}/getstats`,
+        {
+          config,
+          withCredentials: true
         }
-};
+      );
+
+      dispatch(getStatsSuccess(data));
+
+    } catch (error) {
+      dispatch(getStatsFail(error.response.data.message));
+    }
+  };

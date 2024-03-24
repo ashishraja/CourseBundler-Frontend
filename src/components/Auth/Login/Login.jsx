@@ -19,7 +19,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const response = await dispatch(login(email, password));
-
+    console.log(response);
     if (response) {
       if (response.type === "user/loginFail") {
         toast.error(response.payload, toastDisplay);

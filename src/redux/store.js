@@ -15,7 +15,7 @@ const store = configureStore({
             course: courseReducer,
         },
         middleware,
-        devTools:false
+        // devTools:false;
 });
 
 export default store;

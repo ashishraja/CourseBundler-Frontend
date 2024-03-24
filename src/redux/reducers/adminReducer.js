@@ -15,6 +15,17 @@ const adminSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         },
+        createRoomRequest: (state) => {
+            state.loading = true;
+        },
+        createRoomSuccess: (state, action) => {
+            state.loading = false;
+            state.message = action.payload;
+        },
+        createRoomFail: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        },
         deleteCourseRequest: (state) => {
             state.loading = true;
         },

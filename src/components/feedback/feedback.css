@@ -1,0 +1,176 @@
+:root {
+  --back: white;
+  --primary: rgb(0, 0, 0);
+  --secondary: rgb(136, 136, 136);
+  --teritiary: rgb(91, 114, 126);
+  --image: rgb(203, 148, 128);
+}
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.fd {
+  margin-top: 106px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* background: rgb(0, 179, 246); */
+}
+.tweet {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 450px;
+  height: 240px;
+  background: var(--back);
+  color: var(--primary);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 1mm;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 9px 0 rgba(0, 0, 0, 0.2);
+}
+.hd {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+}
+.ie {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--image);
+  margin-right: 10px;
+}
+.n {
+  width: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.un {
+  font-size: 22px;
+  font-family: poppins;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 26px;
+}
+.un span {
+  font-size: 20px;
+  margin-left: 5px;
+  color: rgb(6, 166, 250);
+}
+.hdl,
+.date {
+  font-family: poppins;
+  font-size: 13px;
+  color: var(--teritiary);
+  font-weight: 500;
+}
+.ct {
+  font-size: 13px;
+  color: var(--secondary);
+  font-family: poppins;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ct span {
+  color: rgb(6, 166, 250);
+}
+.date {
+  font-size: 11px;
+}
+.controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--teritiary);
+}
+.controls .btn {
+  display: flex;
+  align-items: center;
+}
+.btn i {
+  margin-right: 5px;
+  font-size: 16px;
+}
+#like {
+  display: none;
+}
+#like + label {
+  position: relative;
+  margin-right: 5px;
+  cursor: pointer;
+}
+#like + label::before {
+  font: var(--fa-font-regular);
+  content: "\f004";
+  font-size: 16px;
+}
+#like:checked + label::before {
+  font: var(--fa-font-solid);
+  color: rgb(227, 0, 27);
+}
+.btn span {
+  font-family: poppins;
+  font-size: 14px;
+  font-weight: 500;
+}
+#toggle {
+  display: none;
+}
+#toggle + label {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 45px;
+  height: 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 3mm;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2),
+    inset -1px 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+#toggle + label::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 2px;
+  transform: translate(0, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgb(0, 179, 246);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: 0.25s ease-in;
+}
+#toggle:checked + label {
+  background: rgb(91, 114, 126);
+}
+#toggle:checked + label::before {
+  left: calc(100% - 18px);
+}
+#toggle:checked ~ .tweet {
+  --back: rgb(8, 16, 38);
+  --primary: rgb(218, 226, 225);
+  --secondary: rgb(218, 226, 225);
+  --tertiary: rgb(162, 182, 196);
+  --image: rgb(139, 166, 177);
+}
